@@ -15,6 +15,7 @@ import {
   ReduxLogo,
   SCSSIcon,
   TailwindLogo,
+  ThreeJSLogo,
   TypescriptLogo,
   VueLogo,
   WebRTCLogo,
@@ -37,6 +38,8 @@ export function TechIcon({ technology }: { technology: string }) {
       return <HTMLIcon />
     case "CSS3":
       return <CSSIcon />
+    case "Three.js":
+      return <ThreeJSLogo />
     case "TypeScript":
       return <TypescriptLogo />
     case "Redux":

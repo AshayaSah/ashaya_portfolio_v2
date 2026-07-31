@@ -2,16 +2,17 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 import { motion } from "motion/react"
 
 import { SectionHeading } from "@/components/section-heading"
 import { StackItem } from "@/components/stack-item"
 import { projects } from "@/lib/data"
 
-export function Projects() {
+export function Projects({ highlighted = false }: { highlighted?: boolean }) {
   return (
     <div className="shadow-section-inset dark:shadow-section-inset-dark my-4 border-y border-neutral-100 px-4 py-6 dark:border-neutral-800">
-      <SectionHeading>I love building things</SectionHeading>
+      <SectionHeading highlighted={highlighted}>I love building things</SectionHeading>
       <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
@@ -20,9 +21,9 @@ export function Projects() {
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="group relative mb-4 rounded-2xl"
+            className="group relative mb-4 flex h-full flex-col rounded-2xl shadow-[var(--shadow-card-clear)] transition-shadow duration-300 hover:shadow-[var(--shadow-card)]"
           >
-            <Link href={project.href}>
+            <Link href={project.href} className="flex h-full flex-col">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -39,10 +40,16 @@ export function Projects() {
                     {project.description}
                   </p>
                 </div>
-                <div className="mt-2 flex max-w-[14rem] flex-wrap gap-1">
-                  {project.stack.map((technology) => (
-                    <StackItem key={technology} technology={technology} />
-                  ))}
+                <div className="mt-2 flex flex-wrap items-end justify-between gap-2">
+                  <div className="flex max-w-[14rem] flex-wrap gap-1">
+                    {project.stack.map((technology) => (
+                      <StackItem key={technology} technology={technology} />
+                    ))}
+                  </div>
+                  <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-neutral-500 transition-colors group-hover:border-neutral-300 group-hover:bg-neutral-50 group-hover:text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:group-hover:border-neutral-600 dark:group-hover:bg-neutral-700 dark:group-hover:text-neutral-100">
+                    View project
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
                 </div>
               </div>
             </Link>

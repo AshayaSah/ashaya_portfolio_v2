@@ -51,6 +51,8 @@
     --pattern-fg: var(--color-neutral-200);
     --shadow-aceternity: 0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08);
     --shadow-aceternity-clear: 0px 2px 3px -1px rgba(0,0,0,0), 0px 1px 0px 0px rgba(25,28,33,0), 0px 0px 0px 1px rgba(25,28,33,0);
+    --shadow-card: 0px 0px 0px 0px transparent, 0px 0px 0px 0px transparent, 0px 0px 40px 0px color-mix(in oklab, var(--color-primary) 25%, transparent);
+    --shadow-card-clear: 0px 0px 0px 0px transparent, 0px 0px 0px 0px transparent, 0px 0px 0px 0px transparent;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);

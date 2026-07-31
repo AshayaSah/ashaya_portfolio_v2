@@ -1,4 +1,5 @@
-export const projects = [  {
+export const projects = [
+  {
     title: "Macbook Mockup",
     description: "A mockup of a Macbook that showcases the product and its features",
     image: "https://assets.aceternity.com/macbook-scroll.png",
@@ -18,6 +19,27 @@ export const projects = [  {
     image: "https://assets.aceternity.com/apple-cards-carousel.png",
     href: "#",
     stack: ["HTML5", "CSS3", "Tailwind CSS"],
+  },
+  {
+    title: "Flight Simulator",
+    description: "A flight simulator that allows you to experience the thrill of flying over any location",
+    image: "https://assets.aceternity.com/background-lines.webp",
+    href: "#",
+    stack: ["React", "Three.js", "Tailwind CSS"],
+  },
+  {
+    title: "Portfolio Website",
+    description: "A modern portfolio website showcasing my projects and professional experience",
+    image: "https://assets.aceternity.com/floating-dock.png",
+    href: "#",
+    stack: ["React", "Next.js", "Tailwind CSS"],
+  },
+  {
+    title: "Blog Platform",
+    description: "A full-featured blog platform with markdown support and a clean reading experience",
+    image: "https://assets.aceternity.com/hero-sections.webp",
+    href: "#",
+    stack: ["React", "Next.js", "Tailwind CSS"],
   },
 ]
 
