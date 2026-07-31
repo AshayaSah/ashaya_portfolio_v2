@@ -43,13 +43,54 @@ export const projects = [
   },
 ]
 
-export const blogs = [
+export type Blog = {
+  title: string
+  date: string
+  excerpt: string
+  slug: string
+  image: string
+  content: { heading: string; paragraphs: string[] }[]
+}
+
+export const blogs: Blog[] = [
   {
     title: "Advanced CSS Techniques for Modern Web Development",
     date: "Thursday, Feb 15, 2024",
     excerpt:
       "Explore advanced CSS techniques including CSS Grid, Flexbox, Custom Properties, and modern layout patterns that will take your styling skills to the next level.",
     slug: "advanced-css-techniques",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop",
+    content: [
+      {
+        heading: "Layout with CSS Grid",
+        paragraphs: [
+          "CSS Grid is the most powerful layout system we have on the web today. A well-crafted grid lets you describe two-dimensional layouts declaratively, without fighting floats or clearing after every row.",
+          "Start by defining your grid template, then place items with line numbers or named areas. Keeping track of rows and columns as named areas makes the intent of the layout readable at a glance.",
+        ],
+      },
+      {
+        heading: "Flexbox for the details",
+        paragraphs: [
+          "Where Grid handles the overall page structure, Flexbox shines for distributing space along a single axis. Alignment, ordering, and growing or shrinking all become a one-liner.",
+          "Combine both systems rather than treating them as rivals. Grid for the macro layout, flexbox for the micro-interactions and component internals.",
+        ],
+      },
+      {
+        heading: "Custom properties as design tokens",
+        paragraphs: [
+          "CSS custom properties turn a stylesheet into a system. Centralize colors, spacing, and typography scale in one place, then reference them everywhere. They also cascade, so you get theming for free.",
+          "Because custom properties resolve at computed-value time, they can be animated and swapped without invalidating the whole style tree. That makes them ideal for theming and component variants.",
+        ],
+      },
+      {
+        heading: "Finishing thoughts",
+        paragraphs: [
+          "Modern CSS is fast, expressive, and worth leaning into. Grid, flexbox, and custom properties alone can replace a surprising amount of JavaScript.",
+          "Go slow, build small demos, and measure how each technique behaves in your browser of choice.",
+        ],
+      },
+    ],
   },
   {
     title: "Introduction to Next.js",
@@ -57,6 +98,38 @@ export const blogs = [
     excerpt:
       "Next.js is a powerful React framework that enables you to build fast, SEO-friendly web applications with server-side rendering and static site generation.",
     slug: "introduction-to-nextjs",
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    content: [
+      {
+        heading: "What is Next.js?",
+        paragraphs: [
+          "Next.js is a React framework that gives you the structure and tools to build production-ready applications. Routing, bundling, and optimizations come out of the box.",
+          "Because pages can be rendered on the server, the initial paint is fast and SEO-friendly without extra configuration.",
+        ],
+      },
+      {
+        heading: "File-based routing",
+        paragraphs: [
+          "Next.js maps files and folders directly to routes. Drop a page.tsx into the app directory and it becomes a URL. Dynamic segments let you build pages that adapt to real data.",
+          "The convention is small but powerful: nested folders create nested routes, and layout files wrap entire sections with shared UI.",
+        ],
+      },
+      {
+        heading: "Rendering strategies",
+        paragraphs: [
+          "Each page can decide when to render. Static generation runs at build time, server rendering runs per request, and client components add interactivity where it matters.",
+          "Pick the strategy that matches your data: static for content that changes rarely, server for personalized responses, client for interactive components.",
+        ],
+      },
+      {
+        heading: "Wrap up",
+        paragraphs: [
+          "The best way to learn Next.js is to build with it. The conventions force good defaults and let you focus on the product.",
+          "Start small, read the docs when you get stuck, and ship something.",
+        ],
+      },
+    ],
   },
   {
     title: "Mastering React Hooks",
@@ -64,6 +137,38 @@ export const blogs = [
     excerpt:
       "Learn how to effectively use React Hooks to manage state and side effects in your functional components. A comprehensive guide for building cleaner React apps.",
     slug: "mastering-react-hooks",
+    image:
+      "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1200&auto=format&fit=crop",
+    content: [
+      {
+        heading: "Why hooks",
+        paragraphs: [
+          "Hooks let you use state and other React features without writing classes. They also encourage extracting logic into reusable functions that any component can share.",
+          "The mental model is simple: every hook call is tied to the component instance, so the same hook can be used many times across your tree.",
+        ],
+      },
+      {
+        heading: "State with useState",
+        paragraphs: [
+          "useState returns a value and a setter. Keep state minimal and derived values computed on the fly, and your components stay predictable.",
+          "When updates depend on the previous value, pass a function to the setter. That avoids stale closures and race conditions in fast-changing UIs.",
+        ],
+      },
+      {
+        heading: "Effects, and when to reach for them",
+        paragraphs: [
+          "useEffect runs after render and keeps your component in sync with the outside world — subscriptions, timers, or API calls. But not everything needs an effect; many derived values can be computed during render.",
+          "Keep effects focused. One effect per concern, with explicit dependencies, makes bugs much easier to track down.",
+        ],
+      },
+      {
+        heading: "Custom hooks",
+        paragraphs: [
+          "The real superpower is composition. Extract repeated logic into custom hooks so components describe what they render instead of how they work.",
+          "Name hooks with use, keep them focused on a single concern, and your codebase will thank you later.",
+        ],
+      },
+    ],
   },
 ]
 

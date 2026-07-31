@@ -27,7 +27,6 @@ function Logo() {
           height={100}
           className="h-10 w-10 rounded-full"
         />
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white to-transparent blur-sm" />
       </div>
     </Link>
   )
@@ -66,7 +65,11 @@ export function Navbar() {
           <div className="flex items-center">
             <ModeToggle />
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="relative px-2 py-1 text-sm">
+              <Link
+                key={item.href}
+                href={item.href}
+                className="relative px-2 py-1 text-sm"
+              >
                 <span className="relative z-10">{item.label}</span>
               </Link>
             ))}
@@ -75,7 +78,12 @@ export function Navbar() {
       </div>
 
       <div className="fixed inset-x-0 top-0 z-50 mx-auto max-w-4xl md:hidden">
-        <nav className="mx-auto flex w-[92%] max-w-4xl items-center justify-between rounded-full bg-white/50 px-3 py-2 backdrop-blur-sm dark:bg-neutral-900/50">
+        <nav
+          className={cn(
+            "mx-auto flex max-w-4xl items-center justify-between bg-white/50 px-3 py-2 backdrop-blur-sm transition-all duration-300 ease-in-out dark:bg-neutral-900/50",
+            scrolled ? "w-full rounded-none" : "w-[92%] rounded-full"
+          )}
+        >
           <Logo />
           <button
             type="button"
