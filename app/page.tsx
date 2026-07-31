@@ -1,19 +1,29 @@
-import { Button } from "@/components/ui/button"
+import { Container } from "@/components/container"
+import { CTA } from "@/components/cta"
+import { Experiences } from "@/components/experiences"
+import { Flipper } from "@/components/flipper"
+import { Heading } from "@/components/heading"
+import { LandingBlogs } from "@/components/landing-blogs"
+import { Projects } from "@/components/projects"
+import { Subheading } from "@/components/subheading"
+import { Testimonials } from "@/components/testimonials"
 
-export default function Page() {
+export default function Home() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
+    <Container>
+      <div className="flex flex-col sm:flex-row sm:items-center">
+        <Heading>John MacTavish</Heading>
+        <Flipper />
       </div>
-    </div>
+      <Subheading>
+        They call me Soap. What the hell kind of a name is Soap? I&apos;m a software engineer
+        though with an eye for design.
+      </Subheading>
+      <Projects />
+      <LandingBlogs />
+      <Experiences />
+      <Testimonials />
+      <CTA />
+    </Container>
   )
 }
