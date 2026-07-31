@@ -1,5 +1,4 @@
-export const projects = [
-  {
+export const projects = [  {
     title: "Macbook Mockup",
     description: "A mockup of a Macbook that showcases the product and its features",
     image: "https://assets.aceternity.com/macbook-scroll.png",
@@ -132,5 +131,104 @@ export const testimonials = [
     name: "Satya Nadella",
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+]
+
+export type TimelineItem = {
+  title: string
+  description: string
+  image: string
+  highlight?: boolean
+}
+
+export const timeline: { year: string; items: TimelineItem[] }[] = [
+  {
+    year: "2025",
+    items: [
+      {
+        title: "Reached $20K MRR with my VSCode fork.",
+        description: "Reached the revenue milestone of $20K MRR with my VSCode fork.",
+        image:
+          "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop",
+        highlight: true,
+      },
+    ],
+  },
+  {
+    year: "2024",
+    items: [
+      {
+        title: "Launched my own developer tools startup",
+        description: "Founded a company focused on creating innovative tools for software developers.",
+        image:
+          "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=800&auto=format&fit=crop",
+        highlight: true,
+      },
+      {
+        title: "Spoke at React Conference",
+        description: "Delivered a keynote presentation about modern frontend architecture patterns.",
+        image:
+          "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop",
+        highlight: true,
+      },
+    ],
+  },
+  {
+    year: "2023",
+    items: [
+      {
+        title: "Contributed to open source",
+        description: "Became a core contributor to several popular React and Next.js libraries.",
+        image:
+          "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+      },
+      {
+        title: "Published technical book",
+        description: "Authored 'Advanced Frontend Architecture' which sold over 10,000 copies.",
+        image:
+          "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop",
+      },
+    ],
+  },
+  {
+    year: "2022",
+    items: [
+      {
+        title: "Led engineering team at tech startup",
+        description: "Managed a team of 12 engineers building a SaaS platform with over 50,000 users.",
+        image:
+          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+        highlight: true,
+      },
+    ],
+  },
+  {
+    year: "2021",
+    items: [
+      {
+        title: "Graduated with Computer Science degree",
+        description:
+          "Completed my Bachelor's degree with honors and specialization in software engineering.",
+        image:
+          "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop",
+      },
+      {
+        title: "Built my first production application",
+        description: "Developed and deployed a web application that gained 5,000 monthly active users.",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
+      },
+    ],
+  },
+  {
+    year: "2020",
+    items: [
+      {
+        title: "Started learning web development",
+        description: "Began my journey into programming with JavaScript, HTML, and CSS.",
+        image:
+          "https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=800&auto=format&fit=crop",
+      },
+    ],
   },
 ]
