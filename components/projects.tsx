@@ -11,7 +11,7 @@ import { projects } from "@/lib/data"
 
 export function Projects({ highlighted = false }: { highlighted?: boolean }) {
   return (
-    <div className="shadow-section-inset dark:shadow-section-inset-dark my-4 border-y border-neutral-100 px-4 py-6 dark:border-neutral-800">
+    <div className="shadow-section-inset dark:shadow-section-inset-dark my-4 border-y border-border px-4 py-6">
       <SectionHeading highlighted={highlighted}>I love building things</SectionHeading>
       <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-3">
         {projects.map((project, index) => (
@@ -33,10 +33,10 @@ export function Projects({ highlighted = false }: { highlighted?: boolean }) {
               />
               <div className="flex flex-1 flex-col justify-between py-4 transition-all duration-300 group-hover:px-4">
                 <div>
-                  <h2 className="z-20 mt-2 font-medium tracking-tight text-neutral-500 dark:text-neutral-200">
+                  <h2 className="z-20 mt-2 font-medium tracking-tight text-foreground">
                     {project.title}
                   </h2>
-                  <p className="mt-2 max-w-[14rem] text-sm text-neutral-500 dark:text-neutral-400">
+                  <p className="mt-2 max-w-[14rem] text-sm text-muted-foreground">
                     {project.description}
                   </p>
                 </div>
@@ -46,7 +46,7 @@ export function Projects({ highlighted = false }: { highlighted?: boolean }) {
                       <StackItem key={technology} technology={technology} />
                     ))}
                   </div>
-                  <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs text-neutral-500 transition-colors group-hover:border-neutral-300 group-hover:bg-neutral-50 group-hover:text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:group-hover:border-neutral-600 dark:group-hover:bg-neutral-700 dark:group-hover:text-neutral-100">
+                  <span className="inline-flex items-center gap-1 rounded-full border border-border bg-muted px-3 py-1 text-xs text-muted-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                     View project
                     <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>

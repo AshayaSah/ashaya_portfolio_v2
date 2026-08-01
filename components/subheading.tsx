@@ -19,7 +19,7 @@ export function Subheading({
     >
       <h2
         className={cn(
-          "max-w-lg px-4 pt-4 text-sm text-neutral-500 md:text-base dark:text-neutral-400",
+          "max-w-lg px-4 pt-4 text-sm text-muted-foreground md:text-base",
           className
         )}
       >

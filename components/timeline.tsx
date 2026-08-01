@@ -54,7 +54,7 @@ function Step({ item, delay }: { item: TimelineItem; delay: number }) {
         <div
           className={cn(
             "flex items-start gap-2 rounded-lg transition-colors",
-            item.highlight && "bg-neutral-100 px-3 py-3 dark:bg-neutral-800/70"
+            item.highlight && "bg-muted px-3 py-3"
           )}
         >
           <CircleCheckFilled
@@ -62,20 +62,20 @@ function Step({ item, delay }: { item: TimelineItem; delay: number }) {
               "mt-1 h-4 w-4",
               item.highlight
                 ? "text-amber-500 dark:text-amber-400"
-                : "text-neutral-500 dark:text-neutral-400"
+                : "text-muted-foreground"
             )}
           />
           <h3
             className={cn(
               item.highlight
-                ? "font-semibold text-neutral-900 dark:text-neutral-100"
-                : "text-neutral-600 group-hover/step:text-neutral-900 dark:text-neutral-400 dark:group-hover/step:text-neutral-200"
+                ? "font-semibold text-foreground"
+                : "text-muted-foreground group-hover/step:text-foreground"
             )}
           >
             {item.title}
           </h3>
         </div>
-        <p className="pt-1 pl-6 text-sm text-neutral-400 dark:text-neutral-500">
+        <p className="pt-1 pl-6 text-sm text-muted-foreground">
           {item.description}
         </p>
         {item.image && (
@@ -91,7 +91,7 @@ function Step({ item, delay }: { item: TimelineItem; delay: number }) {
               alt={item.title}
               width={220}
               height={140}
-              className="h-28 w-44 rounded-xl border border-neutral-200/60 object-cover shadow-xl dark:border-white/10"
+              className="h-28 w-44 rounded-xl border border-border object-cover shadow-xl"
             />
           </motion.div>
         )}
@@ -102,7 +102,7 @@ function Step({ item, delay }: { item: TimelineItem; delay: number }) {
 
 export function Timeline() {
   return (
-    <div className="shadow-section-inset dark:shadow-section-inset-dark my-6 border-y border-neutral-100 px-4 py-6 dark:border-neutral-800">
+    <div className="shadow-section-inset dark:shadow-section-inset-dark my-6 border-y border-border px-4 py-6">
       <SectionHeading highlighted className="mt-4 mb-10">
         Timeline of Achievements
       </SectionHeading>
@@ -113,7 +113,7 @@ export function Timeline() {
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="mb-2 w-fit rounded-md px-2 py-0.5 font-bold text-neutral-900 shadow-[var(--shadow-aceternity)] dark:text-neutral-100"
+            className="mb-2 w-fit rounded-md px-2 py-0.5 font-bold text-foreground shadow-[var(--shadow-aceternity)]"
           >
             {group.year}
           </motion.h2>

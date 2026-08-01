@@ -31,15 +31,15 @@ export function BlogList() {
             </div>
             <div className="flex flex-1 flex-col justify-between py-4 transition-all duration-300 group-hover:px-4">
               <div>
-                <p className="text-sm text-neutral-500 dark:text-neutral-400">{blog.date}</p>
-                <h2 className="mt-2 font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
+                <p className="text-sm text-muted-foreground">{blog.date}</p>
+                <h2 className="mt-2 font-medium tracking-tight text-foreground">
                   {blog.title}
                 </h2>
-                <p className="mt-2 line-clamp-2 text-sm text-neutral-500 dark:text-neutral-400">
+                <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
                   {blog.excerpt}
                 </p>
               </div>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm text-neutral-500 transition-colors group-hover:text-neutral-900 dark:text-neutral-400 dark:group-hover:text-neutral-100">
+              <span className="mt-4 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors group-hover:text-foreground">
                 Read article
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>

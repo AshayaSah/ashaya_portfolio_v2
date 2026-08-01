@@ -13,7 +13,7 @@ export default function Blog() {
           building for the web.
         </Subheading>
       </div>
-      <div className="shadow-section-inset dark:shadow-section-inset-dark my-4 border-y border-neutral-100 px-4 py-6 dark:border-neutral-800">
+      <div className="shadow-section-inset dark:shadow-section-inset-dark my-4 border-y border-border px-4 py-6">
         <BlogList />
       </div>
     </Container>

@@ -17,7 +17,7 @@ function TestimonialCard({
 }) {
   return (
     <div className="mx-4 flex h-50 w-full max-w-60 flex-col justify-between gap-4 rounded-xl p-4 shadow-[var(--shadow-aceternity)] transition duration-300 hover:shadow-md">
-      <p className="text-sm text-neutral-700 dark:text-neutral-200">{quote}</p>
+      <p className="text-sm text-foreground">{quote}</p>
       <div className="flex items-center gap-2">
         <Image
           src={avatar}
@@ -26,7 +26,7 @@ function TestimonialCard({
           height={16}
           className="size-4 rounded-full object-cover"
         />
-        <p className="text-sm text-neutral-500 dark:text-neutral-300">{name}</p>
+        <p className="text-sm text-muted-foreground">{name}</p>
       </div>
     </div>
   )

@@ -74,7 +74,7 @@ export function DraggableCardBody({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "transform-3d absolute min-h-54 w-60 cursor-grab overflow-hidden rounded-md bg-neutral-100 p-2 shadow-2xl select-none active:cursor-grabbing dark:bg-neutral-900",
+        "transform-3d absolute min-h-54 w-60 cursor-grab overflow-hidden rounded-md bg-card p-2 shadow-2xl select-none active:cursor-grabbing",
         className
       )}
       style={{

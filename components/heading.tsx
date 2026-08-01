@@ -19,7 +19,7 @@ export function Heading({
     >
       <h1
         className={cn(
-          "px-4 text-2xl font-bold tracking-tighter text-neutral-900 drop-shadow-lg md:text-4xl dark:text-neutral-100",
+          "px-4 text-2xl font-bold tracking-tighter text-foreground drop-shadow-lg md:text-4xl",
           className
         )}
       >
