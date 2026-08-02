@@ -10,7 +10,7 @@ export function StackItem({ technology }: { technology: string }) {
       initial="initial"
       whileHover="hover"
       tabIndex={0}
-      className="-mr-3 flex items-start justify-start rounded-full border border-neutral-200 bg-neutral-100 p-1 text-xs text-neutral-500 hover:z-10 focus-visible:z-10 dark:border-neutral-700 dark:bg-neutral-800"
+      className="-mr-3 flex items-start justify-start rounded-full border border-border bg-muted p-1 text-xs text-muted-foreground hover:z-10 focus-visible:z-10"
     >
       <span>
         <TechIcon technology={technology} />
@@ -21,7 +21,7 @@ export function StackItem({ technology }: { technology: string }) {
           hover: { width: "auto" },
         }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
-        className="overflow-hidden whitespace-nowrap text-neutral-500 dark:text-neutral-200"
+        className="overflow-hidden whitespace-nowrap text-foreground"
       >
         &nbsp;{technology}
       </motion.span>

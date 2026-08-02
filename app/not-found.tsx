@@ -17,7 +17,7 @@ export default function NotFound() {
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="text-7xl font-bold tracking-tighter text-neutral-900 md:text-9xl dark:text-neutral-100"
+              className="text-7xl font-bold tracking-tighter text-foreground md:text-9xl"
             >
               {digit}
             </motion.span>
@@ -27,7 +27,7 @@ export default function NotFound() {
           initial={{ opacity: 0, filter: "blur(4px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-2xl font-bold tracking-tighter text-neutral-900 md:text-4xl dark:text-neutral-100"
+          className="text-2xl font-bold tracking-tighter text-foreground md:text-4xl"
         >
           This page has left the building.
         </motion.h1>
@@ -35,7 +35,7 @@ export default function NotFound() {
           initial={{ opacity: 0, filter: "blur(4px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="max-w-lg text-sm text-neutral-500 md:text-base dark:text-neutral-400"
+          className="max-w-lg text-sm text-muted-foreground md:text-base"
         >
           The page you&apos;re looking for doesn&apos;t exist or has been moved. Let&apos;s
           get you back on track.
@@ -48,14 +48,14 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm text-white transition-colors hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm text-primary-foreground transition-colors hover:bg-primary/80"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-6 py-3 text-sm text-neutral-700 transition-colors hover:bg-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-muted px-6 py-3 text-sm text-foreground transition-colors hover:bg-accent"
           >
             See my projects
             <ArrowRight className="h-4 w-4" />

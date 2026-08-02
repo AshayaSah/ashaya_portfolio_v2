@@ -21,7 +21,7 @@ export function Flipper() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="relative order-first mx-4 mb-2 flex w-fit justify-center overflow-hidden rounded-md px-2 py-0.5 pt-0 text-sm text-neutral-500 shadow-[var(--shadow-aceternity)] sm:order-last sm:mx-0 sm:mb-0 dark:text-neutral-400"
+      className="relative order-first mx-4 mb-2 flex w-fit justify-center overflow-hidden rounded-md px-2 py-0.5 pt-0 text-sm text-muted-foreground shadow-[var(--shadow-aceternity)] sm:order-last sm:mx-0 sm:mb-0"
     >
       <AnimatePresence mode="popLayout">
         <motion.span

@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import * as React from "react"
 import { AnimatePresence, motion } from "motion/react"
 import { Menu, X } from "lucide-react"
@@ -32,7 +33,55 @@ function Logo() {
   )
 }
 
+function NavShell({
+  className,
+  children,
+}: {
+  className?: string
+  children: React.ReactNode
+}) {
+  return (
+    <nav
+      className={cn(
+        "mx-auto flex max-w-4xl items-center justify-between px-3 py-2 backdrop-blur-sm transition-all duration-300 ease-in-out",
+        className
+      )}
+    >
+      {children}
+    </nav>
+  )
+}
+
+function NavLink({
+  href,
+  active,
+  className,
+  onClick,
+  children,
+}: {
+  href: string
+  active: boolean
+  className?: string
+  onClick?: () => void
+  children: React.ReactNode
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn(
+        "relative px-2 py-1 text-sm transition-colors",
+        active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+        className
+      )}
+    >
+      {children}
+    </Link>
+  )
+}
+
 export function Navbar() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = React.useState(false)
   const [open, setOpen] = React.useState(false)
 
@@ -50,12 +99,14 @@ export function Navbar() {
     }
   }, [open])
 
+  const isActive = (href: string) => pathname === href
+
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-50 mx-auto hidden max-w-4xl md:block">
-        <nav
+        <NavShell
           className={cn(
-            "mx-auto flex max-w-4xl items-center justify-between bg-white/50 px-3 py-2 backdrop-blur-sm transition-all duration-300 ease-in-out dark:bg-neutral-900/50",
+            "bg-background/50",
             scrolled
               ? "w-[85%] translate-y-2.5 rounded-[4rem] shadow-[var(--shadow-aceternity)]"
               : "w-[92%] rounded-none shadow-[var(--shadow-aceternity-clear)]"
@@ -65,22 +116,18 @@ export function Navbar() {
           <div className="flex items-center">
             <ModeToggle />
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="relative px-2 py-1 text-sm"
-              >
-                <span className="relative z-10">{item.label}</span>
-              </Link>
+              <NavLink key={item.href} href={item.href} active={isActive(item.href)}>
+                {item.label}
+              </NavLink>
             ))}
           </div>
-        </nav>
+        </NavShell>
       </div>
 
       <div className="fixed inset-x-0 top-0 z-50 mx-auto max-w-4xl md:hidden">
-        <nav
+        <NavShell
           className={cn(
-            "mx-auto flex max-w-4xl items-center justify-between bg-white/50 px-3 py-2 backdrop-blur-sm transition-all duration-300 ease-in-out dark:bg-neutral-900/50",
+            "bg-background/80",
             scrolled ? "w-full rounded-none" : "w-[92%] rounded-full"
           )}
         >
@@ -89,11 +136,11 @@ export function Navbar() {
             type="button"
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-md text-neutral-700 dark:text-neutral-200"
+            className="flex h-10 w-10 items-center justify-center rounded-md text-foreground"
           >
             <Menu strokeWidth={1.5} className="h-6 w-6" />
           </button>
-        </nav>
+        </NavShell>
 
         <AnimatePresence>
           {open && (
@@ -103,14 +150,14 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 flex flex-col bg-white/95 backdrop-blur-xl dark:bg-neutral-900/95"
+              className="fixed inset-0 z-50 flex flex-col bg-background/95 backdrop-blur-xl"
             >
               <div className="flex w-full items-center justify-end p-4">
                 <button
                   type="button"
                   aria-label="Close menu"
                   onClick={() => setOpen(false)}
-                  className="flex h-10 w-10 items-center justify-center rounded-md text-neutral-700 dark:text-neutral-200"
+                  className="flex h-10 w-10 items-center justify-center rounded-md text-foreground"
                 >
                   <X strokeWidth={1.5} className="h-6 w-6" />
                 </button>
@@ -123,13 +170,14 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.08 }}
                   >
-                    <Link
+                    <NavLink
                       href={item.href}
+                      active={isActive(item.href)}
                       onClick={() => setOpen(false)}
-                      className="text-2xl font-medium text-neutral-800 transition-colors hover:text-neutral-500 dark:text-neutral-200 dark:hover:text-neutral-400"
+                      className="text-2xl font-medium"
                     >
                       {item.label}
-                    </Link>
+                    </NavLink>
                   </motion.div>
                 ))}
                 <motion.div
