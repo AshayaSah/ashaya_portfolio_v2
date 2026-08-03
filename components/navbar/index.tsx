@@ -101,6 +101,10 @@ export function Navbar() {
 
   const isActive = (href: string) => pathname === href
 
+  if (pathname?.startsWith("/admin")) {
+    return null
+  }
+
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-50 mx-auto hidden max-w-4xl md:block">

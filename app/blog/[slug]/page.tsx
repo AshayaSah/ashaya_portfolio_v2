@@ -3,12 +3,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 import { Container } from "@/components/container"
-import { blogs } from "@/lib/data"
+import { getAllBlogSlugs, getBlogPostBySlug } from "@/db/queries"
 
-export function generateStaticParams() {
-  return blogs.map((blog) => ({ slug: blog.slug }))
+export async function generateStaticParams() {
+  const slugs = await getAllBlogSlugs()
+  return slugs.map(({ slug }) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -17,7 +20,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const blog = blogs.find((entry) => entry.slug === slug)
+  const blog = await getBlogPostBySlug(slug)
 
   return {
     title: blog ? `${blog.title} | Mr. Ashaya Sah` : "Blog | Mr. Ashaya Sah",
@@ -31,7 +34,7 @@ export default async function BlogPost({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const blog = blogs.find((entry) => entry.slug === slug)
+  const blog = await getBlogPostBySlug(slug)
 
   if (!blog) {
     notFound()
@@ -59,28 +62,18 @@ export default async function BlogPost({
         <div className="mx-auto flex max-w-2xl flex-col gap-8">
           <div className="overflow-hidden rounded-xl">
             <Image
-              src={blog.image}
+              src={blog.imageUrl}
               alt={blog.title}
               width={1200}
               height={800}
               className="aspect-[3/2] w-full rounded-xl object-cover"
             />
           </div>
-          {blog.content.map((section) => (
-            <section key={section.heading}>
-              <h2 className="text-lg font-bold tracking-tight text-foreground md:text-xl">
-                {section.heading}
-              </h2>
-              {section.paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph}
-                  className="pt-3 text-sm leading-7 text-muted-foreground md:text-base"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </section>
-          ))}
+          <div className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {blog.contentMarkdown}
+            </ReactMarkdown>
+          </div>
         </div>
       </article>
     </Container>

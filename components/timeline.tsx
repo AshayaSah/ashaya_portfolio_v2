@@ -2,11 +2,15 @@
 
 import Image from "next/image"
 import * as React from "react"
+import type { InferSelectModel } from "drizzle-orm"
 import { motion } from "motion/react"
 
 import { SectionHeading } from "@/components/section-heading"
-import { timeline, type TimelineItem } from "@/lib/data"
+import type { timelineItems } from "@/db/schema"
 import { cn } from "@/lib/utils"
+
+type TimelineItem = InferSelectModel<typeof timelineItems>
+type TimelineGroup = { year: string; items: TimelineItem[] }
 
 function CircleCheckFilled({ className }: { className?: string }) {
   return (
@@ -78,7 +82,7 @@ function Step({ item, delay }: { item: TimelineItem; delay: number }) {
         <p className="pt-1 pl-6 text-sm text-muted-foreground">
           {item.description}
         </p>
-        {item.image && (
+        {item.imageUrl && (
           <motion.div
             className="pointer-events-none fixed z-50"
             style={{ left: position.x, top: position.y }}
@@ -87,7 +91,7 @@ function Step({ item, delay }: { item: TimelineItem; delay: number }) {
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
             <Image
-              src={item.image}
+              src={item.imageUrl}
               alt={item.title}
               width={220}
               height={140}
@@ -100,13 +104,13 @@ function Step({ item, delay }: { item: TimelineItem; delay: number }) {
   )
 }
 
-export function Timeline() {
+export function Timeline({ groups }: { groups: TimelineGroup[] }) {
   return (
     <div className="shadow-section-inset dark:shadow-section-inset-dark my-6 border-y border-border px-4 py-6">
       <SectionHeading highlighted className="mt-4 mb-10">
         Timeline of Achievements
       </SectionHeading>
-      {timeline.map((group, groupIndex) => (
+      {groups.map((group, groupIndex) => (
         <div key={group.year} className="mb-4">
           <motion.h2
             initial={{ opacity: 0, filter: "blur(4px)" }}
@@ -120,7 +124,7 @@ export function Timeline() {
           <div className="flex flex-col gap-4">
             {group.items.map((item, itemIndex) => (
               <Step
-                key={item.title}
+                key={item.id}
                 item={item}
                 delay={groupIndex * 0.05 + itemIndex * 0.08}
               />
