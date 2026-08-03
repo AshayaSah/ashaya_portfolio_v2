@@ -7,22 +7,34 @@ import { LandingBlogs } from "@/components/landing-blogs"
 import { Projects } from "@/components/projects"
 import { Subheading } from "@/components/subheading"
 import { Testimonials } from "@/components/testimonials"
+import {
+  getBlogPosts,
+  getExperiences,
+  getProfile,
+  getProjects,
+  getTestimonials,
+} from "@/db/queries"
 
-export default function Home() {
+export default async function Home() {
+  const [profile, projects, blogPosts, experiences, testimonials] = await Promise.all([
+    getProfile(),
+    getProjects(),
+    getBlogPosts(),
+    getExperiences(),
+    getTestimonials(),
+  ])
+
   return (
     <Container>
       <div className="flex flex-col sm:flex-row sm:items-center">
-        <Heading>John MacTavish</Heading>
-        <Flipper />
+        <Heading>{profile.fullName}</Heading>
+        <Flipper roles={profile.roles} />
       </div>
-      <Subheading>
-        They call me Soap. What the hell kind of a name is Soap? I&apos;m a software engineer
-        though with an eye for design.
-      </Subheading>
-      <Projects />
-      <LandingBlogs />
-      <Experiences />
-      <Testimonials />
+      <Subheading>{profile.homeSubheading}</Subheading>
+      <Projects projects={projects} />
+      <LandingBlogs posts={blogPosts.slice(0, 4)} />
+      <Experiences experiences={experiences} />
+      <Testimonials testimonials={testimonials} />
       <CTA />
     </Container>
   )

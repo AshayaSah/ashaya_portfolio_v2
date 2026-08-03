@@ -3,20 +3,29 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import type { InferSelectModel } from "drizzle-orm"
 import { motion } from "motion/react"
 
 import { SectionHeading } from "@/components/section-heading"
 import { StackItem } from "@/components/stack-item"
-import { projects } from "@/lib/data"
+import type { projects as projectsTable } from "@/db/schema"
 
-export function Projects({ highlighted = false }: { highlighted?: boolean }) {
+type Project = InferSelectModel<typeof projectsTable>
+
+export function Projects({
+  projects,
+  highlighted = false,
+}: {
+  projects: Project[]
+  highlighted?: boolean
+}) {
   return (
     <div className="shadow-section-inset dark:shadow-section-inset-dark my-4 border-y border-border px-4 py-6">
       <SectionHeading highlighted={highlighted}>I love building things</SectionHeading>
       <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
-            key={project.title}
+            key={project.id}
             initial={{ opacity: 0, filter: "blur(4px)" }}
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true }}
@@ -25,7 +34,7 @@ export function Projects({ highlighted = false }: { highlighted?: boolean }) {
           >
             <Link href={project.href} className="flex h-full flex-col">
               <Image
-                src={project.image}
+                src={project.imageUrl}
                 alt={project.title}
                 width={300}
                 height={300}
