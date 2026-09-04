@@ -38,12 +38,22 @@ export function ExperienceForm({
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="company">Company</Label>
-        <Input id="company" name="company" defaultValue={defaultValues?.company} required />
+        <Input
+          id="company"
+          name="company"
+          defaultValue={defaultValues?.company}
+          required
+        />
       </div>
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="role">Role</Label>
-        <Input id="role" name="role" defaultValue={defaultValues?.role} required />
+        <Input
+          id="role"
+          name="role"
+          defaultValue={defaultValues?.role}
+          required
+        />
       </div>
 
       <div className="flex flex-col gap-2">
@@ -65,6 +75,9 @@ export function ExperienceForm({
           defaultValue={defaultValues?.description}
           required
         />
+        <p className="text-xs text-muted-foreground">
+          Supports Markdown (e.g. bullet lists with `- item`).
+        </p>
       </div>
 
       <div className="flex flex-col gap-2">

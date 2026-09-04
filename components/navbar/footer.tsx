@@ -10,7 +10,10 @@ const ICONS = {
 }
 
 export async function Footer() {
-  const [profile, socialLinks] = await Promise.all([getProfile(), getSocialLinks()])
+  const [profile, socialLinks] = await Promise.all([
+    getProfile(),
+    getSocialLinks(),
+  ])
 
   return (
     <footer className="relative mx-auto h-full w-full max-w-4xl bg-background">
@@ -20,7 +23,13 @@ export async function Footer() {
           {socialLinks.map(({ id, href, label, icon }) => {
             const Icon = ICONS[icon]
             return (
-              <Link key={id} href={href} aria-label={label}>
+              <Link
+                key={id}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Icon className="size-4 text-muted-foreground hover:text-foreground" />
               </Link>
             )

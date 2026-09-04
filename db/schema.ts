@@ -83,6 +83,7 @@ export const collagePhotos = pgTable("collage_photos", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
   imageUrl: text("image_url").notNull(),
+  description: text("description"),
   positionClass: text("position_class").notNull(),
   orderIndex: integer("order_index").default(0).notNull(),
 })
