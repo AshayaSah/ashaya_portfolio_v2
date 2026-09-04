@@ -27,7 +27,15 @@ function TestimonialCard({ quote, name, avatarUrl }: Testimonial) {
   )
 }
 
-export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) {
+export function Testimonials({
+  testimonials,
+}: {
+  testimonials: Testimonial[]
+}) {
+  if (testimonials.length === 0) {
+    return null
+  }
+
   return (
     <div className="my-4 px-4 py-4">
       <SectionHeading className="mb-4">People love my work</SectionHeading>

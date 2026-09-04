@@ -37,7 +37,12 @@ export function ProjectForm({
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="title">Title</Label>
-        <Input id="title" name="title" defaultValue={defaultValues?.title} required />
+        <Input
+          id="title"
+          name="title"
+          defaultValue={defaultValues?.title}
+          required
+        />
       </div>
 
       <div className="flex flex-col gap-2">
@@ -48,11 +53,19 @@ export function ProjectForm({
           defaultValue={defaultValues?.description}
           required
         />
+        <p className="text-xs text-muted-foreground">
+          Supports Markdown (e.g. bold, links, and `- item` lists).
+        </p>
       </div>
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="href">Link</Label>
-        <Input id="href" name="href" defaultValue={defaultValues?.href} required />
+        <Input
+          id="href"
+          name="href"
+          defaultValue={defaultValues?.href}
+          required
+        />
       </div>
 
       <div className="flex flex-col gap-2">
