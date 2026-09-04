@@ -13,7 +13,9 @@ export default async function AdminCollagePage() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-semibold text-foreground">Collage Photos</h1>
+        <h1 className="text-xl font-semibold text-foreground">
+          Collage Photos
+        </h1>
         <Button asChild size="sm">
           <Link href="/admin/collage/new">Add photo</Link>
         </Button>
@@ -37,7 +39,14 @@ export default async function AdminCollagePage() {
               </div>
               <div>
                 <p className="font-medium text-foreground">{photo.title}</p>
-                <p className="text-sm text-muted-foreground">{photo.positionClass}</p>
+                {photo.description && (
+                  <p className="line-clamp-1 text-sm text-muted-foreground">
+                    {photo.description}
+                  </p>
+                )}
+                <p className="text-sm text-muted-foreground">
+                  {photo.positionClass}
+                </p>
               </div>
             </div>
             <div className="flex shrink-0 items-center gap-2">
