@@ -7,7 +7,7 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
 import { SectionHeading } from "@/components/section-heading"
-import { StackItem } from "@/components/stack-item"
+import { StackMarquee } from "@/components/stack-marquee"
 import type { experiences as experiencesTable } from "@/db/schema"
 import { cn } from "@/lib/utils"
 
@@ -67,11 +67,7 @@ export function Experiences({ experiences }: { experiences: Experience[] }) {
                     {experience.description}
                   </ReactMarkdown>
                 </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {experience.stack.map((technology) => (
-                    <StackItem key={technology} technology={technology} />
-                  ))}
-                </div>
+                <StackMarquee technologies={experience.stack} />
               </div>
               <CompanyLogo
                 company={experience.company}
