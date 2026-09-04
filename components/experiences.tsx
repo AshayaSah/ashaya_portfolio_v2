@@ -42,7 +42,7 @@ export function Experiences({ experiences }: { experiences: Experience[] }) {
   return (
     <div className="my-10 border-y border-border px-4 py-6 shadow-section-inset dark:shadow-section-inset-dark">
       <SectionHeading>Worked at reputed firms</SectionHeading>
-      <div className="flex flex-col gap-6 py-10">
+      <div className="flex flex-col gap-10 py-10">
         {experiences.map((experience, index) => (
           <motion.div
             key={experience.id}
