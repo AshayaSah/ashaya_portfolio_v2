@@ -1,0 +1,1 @@
+ALTER TABLE "collage_photos" ADD COLUMN "description" text;

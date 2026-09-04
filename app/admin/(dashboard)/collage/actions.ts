@@ -11,6 +11,7 @@ export async function createCollagePhoto(formData: FormData) {
   await db.insert(collagePhotos).values({
     title: String(formData.get("title") ?? ""),
     imageUrl: String(formData.get("imageUrl") ?? ""),
+    description: String(formData.get("description") ?? "") || null,
     positionClass: String(formData.get("positionClass") ?? ""),
     orderIndex: Number(formData.get("orderIndex") ?? 0),
   })
@@ -25,6 +26,7 @@ export async function updateCollagePhoto(formData: FormData) {
     .set({
       title: String(formData.get("title") ?? ""),
       imageUrl: String(formData.get("imageUrl") ?? ""),
+      description: String(formData.get("description") ?? "") || null,
       positionClass: String(formData.get("positionClass") ?? ""),
       orderIndex: Number(formData.get("orderIndex") ?? 0),
     })

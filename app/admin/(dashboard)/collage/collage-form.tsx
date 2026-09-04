@@ -2,11 +2,13 @@ import { ImageUploadField } from "@/components/admin/image-upload-field"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 
 type CollageFormValues = {
   id?: number
   title?: string
   imageUrl?: string
+  description?: string | null
   positionClass?: string
   orderIndex?: number
 }
@@ -34,7 +36,26 @@ export function CollageForm({
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="title">Title</Label>
-        <Input id="title" name="title" defaultValue={defaultValues?.title} required />
+        <Input
+          id="title"
+          name="title"
+          defaultValue={defaultValues?.title}
+          required
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="description">Description</Label>
+        <Textarea
+          id="description"
+          name="description"
+          defaultValue={defaultValues?.description ?? ""}
+          placeholder="A short caption shown when hovering over the photo."
+          rows={3}
+        />
+        <p className="text-xs text-muted-foreground">
+          Shown when the photo is hovered in the about collage.
+        </p>
       </div>
 
       <div className="flex flex-col gap-2">
@@ -47,7 +68,8 @@ export function CollageForm({
           required
         />
         <p className="text-xs text-muted-foreground">
-          Controls where the photo sits in the draggable collage on the About page.
+          Controls where the photo sits in the draggable collage on the About
+          page.
         </p>
       </div>
 
