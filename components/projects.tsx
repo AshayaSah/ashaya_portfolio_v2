@@ -61,7 +61,7 @@ export function Projects({
                   className="w-full origin-bottom rounded-xl object-cover transition-transform duration-300 ease-out group-hover:scale-[1.5]"
                 />
               </div>
-              <div className="relative z-10 flex flex-1 flex-col justify-between bg-card py-4 transition-all duration-300 group-hover:px-4">
+              <div className="relative z-10 flex flex-1 flex-col justify-between bg-card px-2 py-4 transition-all duration-300 group-hover:px-4">
                 <div>
                   <h2 className="z-20 mt-2 font-medium tracking-tight text-foreground">
                     {project.title}
